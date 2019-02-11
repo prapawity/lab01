@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import './ui/first_screen.dart';
+import './ui/second_screen.dart';
+import './ui/detail_screen.dart';
+import './ui/forn_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +18,12 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         brightness:  Brightness.dark,
       ),
-      home: MyHomePage(),
+      //home: MyHomePage(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) =>FromScreen(),
+        "/second" :(context) => DetailScreen(title: "test",),
+        },
     );
   }
 }
@@ -27,9 +36,9 @@ class MyHomePage extends StatelessWidget{
         title: Text("Tab"),
         bottom: TabBar(
           tabs: <Widget>[
-            Tab(icon: Icon(Icons.cake),text: "CAKE",),
-            Tab(icon: Icon(Icons.brush),text: "CAKE",),
-            Tab(icon: Icon(Icons.broken_image),text: "CAKE",)],
+            Tab(icon: Icon(Icons.cake)),
+            Tab(icon: Icon(Icons.brush)),
+            Tab(icon: Icon(Icons.broken_image))],
             ),
             ),
             body: TabBarView(children: <Widget>[Icon(Icons.cake),Icon(Icons.brush),Icon(Icons.broken_image)],),
@@ -37,6 +46,39 @@ class MyHomePage extends StatelessWidget{
   }
   
 }
+// class Home extends StatelessWidget {
+//  @override
+//  State<StatefulWidget> createState() {
+//     return _HomeState();
+//   }
+// }
+// class _HomeState extends State<Home> {
+//  @override
+//  Widget build(BuildContext context) {
+//    return Scaffold(
+//      appBar: AppBar(
+//        title: Text('My Flutter App'),
+//      ),
+//      bottomNavigationBar: BottomNavigationBar(
+//        currentIndex: 0, // this will be set when a new tab is tapped
+//        items: [
+//          BottomNavigationBarItem(
+//            icon: new Icon(Icons.home),
+//            title: new Text('Home'),
+//          ),
+//          BottomNavigationBarItem(
+//            icon: new Icon(Icons.mail),
+//            title: new Text('Messages'),
+//          ),
+//          BottomNavigationBarItem(
+//            icon: Icon(Icons.person),
+//            title: Text('Profile')
+//          )
+//        ],
+//      ),
+//    );
+//  }
+// }
 
 // class MyHomePage extends StatefulWidget{
 //   @override
