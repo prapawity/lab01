@@ -4,6 +4,7 @@ import './ui/second_screen.dart';
 import './ui/detail_screen.dart';
 import './ui/forn_screen.dart';
 import './ui/listdata.dart';
+import './ui/listviewPost.dart';
 
 void main() => runApp(MyApp());
 
