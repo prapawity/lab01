@@ -3,6 +3,7 @@ import './ui/first_screen.dart';
 import './ui/second_screen.dart';
 import './ui/detail_screen.dart';
 import './ui/forn_screen.dart';
+import './ui/listdata.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       //home: MyHomePage(),
       initialRoute: "/",
       routes: {
-        "/": (context) =>FirstScreen(),
+        "/": (context) => ListData(),
+        // "/": (context) =>FirstScreen(),
         // "/second" :(context) => DetailScreen(title: "test",),
         },
     );
