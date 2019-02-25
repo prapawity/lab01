@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
       //home: MyHomePage(),
       initialRoute: "/",
       routes: {
-        "/": (context) =>FromScreen(),
-        "/second" :(context) => DetailScreen(title: "test",),
+        "/": (context) =>FirstScreen(),
+        // "/second" :(context) => DetailScreen(title: "test",),
         },
     );
   }
