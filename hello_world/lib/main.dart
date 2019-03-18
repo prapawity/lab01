@@ -5,6 +5,7 @@ import './ui/detail_screen.dart';
 import './ui/forn_screen.dart';
 import './ui/listdata.dart';
 import './ui/listviewPost.dart';
+import './ui/todoScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       //home: MyHomePage(),
       initialRoute: "/",
       routes: {
-        "/": (context) => SecondScreen(),
+        "/": (context) => TodoScreen(),
         // "/": (context) =>FirstScreen(),
         // "/second" :(context) => DetailScreen(title: "test",),
         },
