@@ -1,8 +1,5 @@
 import 'package:sqflite/sqflite.dart';
 
-
-
-
 final String todoTable = "todo";
 final String columnId = "_id";
 final String columnTitle = "title";
@@ -21,12 +18,14 @@ class Todo{
   }
   Map<String, dynamic> toMap(){
     Map<String, dynamic> map = {
-      columnTitle:title,columnDone: done == true ? 1 : 0
+      columnTitle:title,
+      columnDone: done == true ? 1:0 
     };
 
     if(id !=null){
       map[columnId] = id;
     }
+    return map;
   }
 }
 
@@ -36,20 +35,20 @@ class TodoProvider {
   Future open(String path) async {
     db = await openDatabase(path,version:1,onCreate:(Database db, int version) async{
       await db.execute('''create table $todoTable(
-        $columnId int primary key autoincrement,
+        $columnId INTEGER primary key autoincrement,
         $columnTitle text not null,
-        $columnDone int not null
+        $columnDone INTEGER not null
       )''');
     });
   }
 
   Future<Todo> insert(Todo todo) async{
-    db.insert(todoTable,todo.toMap());
+    todo.id = await db.insert(todoTable, todo.toMap());
     return todo;
   }
 
   Future<Todo> getTodo(int id) async{
-    List<Map<String, dynamic>> maps = await db.query(todoTable,columns: [columnId,columnTitle,columnDone],
+    List<Map<String, dynamic>> maps = await db.query(todoTable,columns: [columnId,columnDone,columnTitle],
     where: '$columnId = ?',
     whereArgs: [id]);
     if (maps.length > 0) {
